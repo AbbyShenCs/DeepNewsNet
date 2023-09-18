@@ -1,0 +1,17 @@
+.middle{
+    margin: auto;
+    width: 75%;
+}
+.middle
+    .inputtext{
+    width: 100%;
+    min-height: 150;
+    height: 75%;
+    }
+.middle .title{
+    font-size: 20px;
+    text-align: center;
+}
+.middle div{
+    word-wrap:break-word
+}

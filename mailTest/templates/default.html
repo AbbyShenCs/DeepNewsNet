@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>
+        {% if page_title %}
+            {{ page_title }}
+        {% endif %}        
+    </title>    
+    <link rel="icon" href="/static/hgd_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/main.css">
+    <script src="/static/jquery.min-3.6.0.js"></script>
+</head>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>

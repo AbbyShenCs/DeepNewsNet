@@ -1,0 +1,45 @@
+{% extends "default.html" %}
+
+{% block body %}
+    <script>
+        function ForMailClass(){
+            var date = new Date();
+                    $.ajax({
+                        type: "Get",
+                        url: "/mailAnalysis",
+                        data: {content:$("#mailBoot").val(),timestamp:date.getTime()},
+                        dataType: "json",
+                        success: function(data){
+                                    //$('#resText').empty();   //清空resText里面的所有内容
+                                    $('#result').text(data.msg)
+                                 }
+                    });
+        }
+        $(function(){
+            $('#mailBoot').bind('input propertychange', function() {
+                if($("#autocheck").prop("checked")  == true){
+                    //console.log($('#mailBoot').val())
+                    //htmlobj=$.ajax({url:"/jquery/test1.txt",async:false});
+                    ForMailClass()
+                }
+            });
+            $("#analysis").click(function(){
+                //htmlobj=$.ajax({url:"/jquery/test1.txt",async:false});
+                //$("#myDiv").html(htmlobj.responseText);
+                ForMailClass()
+            });
+        })
+
+
+    </script>
+    <div class="middle">
+        <p class="title">新闻文本分类在线测试系统</p>
+        <p>分析结果：</p><div id="result"></div>
+        <textarea id="mailBoot" class="inputtext"></textarea>
+        <input type="CheckBox" id="autocheck" value="1" />自动解析
+        <button id="analysis">开始分析</button>
+    </div>
+
+
+{% endblock %}
+
